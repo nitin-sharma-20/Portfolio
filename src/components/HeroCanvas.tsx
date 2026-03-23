@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useMemo, useCallback, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useRef, useMemo, useCallback } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 /* ─── Interactive Cube ─── */
@@ -18,7 +18,7 @@ function InteractiveCube({
 }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const initialPos = useRef(new THREE.Vector3(...position));
-  const velocity = useRef(new THREE.Vector3(0, 0, 0));
+
 
   useFrame((state) => {
     if (!meshRef.current) return;

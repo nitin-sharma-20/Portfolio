@@ -152,14 +152,16 @@ const Cubes: React.FC<CubesProps> = ({
     }, [resetAll]);
 
     const onClick = useCallback(
-        (e: any) => {
+        (e: Event) => {
             if (!rippleOnClick || !sceneRef.current) return;
             const rect = sceneRef.current.getBoundingClientRect();
             const cellW = rect.width / gridSize;
             const cellH = rect.height / gridSize;
 
-            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-            const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            const mse = e as MouseEvent;
+            const tch = e as TouchEvent;
+            const clientX = mse.clientX || (tch.touches && tch.touches[0]?.clientX);
+            const clientY = mse.clientY || (tch.touches && tch.touches[0]?.clientY);
 
             const colHit = Math.floor((clientX - rect.left) / cellW);
             const rowHit = Math.floor((clientY - rect.top) / cellH);
@@ -263,8 +265,8 @@ const Cubes: React.FC<CubesProps> = ({
             el.removeEventListener('touchstart', onTouchStart);
             el.removeEventListener('touchend', onTouchEnd);
 
-            rafRef.current != null && cancelAnimationFrame(rafRef.current);
-            idleTimerRef.current && clearTimeout(idleTimerRef.current);
+            if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+            if (idleTimerRef.current != null) clearTimeout(idleTimerRef.current);
         };
     }, [onPointerMove, resetAll, onClick, onTouchMove, onTouchStart, onTouchEnd]);
 
