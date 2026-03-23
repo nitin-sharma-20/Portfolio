@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nitin Sharma — Personal Portfolio
 
-## Getting Started
+A modern, light-themed, 3D interactive personal portfolio built with **Next.js 14**, **Tailwind CSS**, **Framer Motion**, and **React Three Fiber**.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![React Three Fiber](https://img.shields.io/badge/React%20Three%20Fiber-3D-blueviolet)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?logo=tailwindcss)
+![Framer Motion](https://img.shields.io/badge/Framer-Motion-ff69b4)
+
+## ✨ Features
+
+- **Interactive 3D Hero** — Glass icosahedron with orbiting rings and floating particles (React Three Fiber)
+- **Scroll Animations** — Smooth reveal animations on every section (Framer Motion)
+- **Glassmorphism UI** — Modern frosted-glass navbar and card effects
+- **Responsive Design** — Fully responsive across desktop, tablet, and mobile
+- **Light Theme** — Clean white/light gray backgrounds with high-contrast typography
+- **SEO Optimized** — Proper meta tags, semantic HTML, Open Graph data
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **Next.js 14** (App Router) | React framework with SSR/SSG |
+| **Tailwind CSS** | Utility-first CSS framework |
+| **React Three Fiber** | 3D rendering with Three.js |
+| **@react-three/drei** | Useful helpers for R3F |
+| **Framer Motion** | Scroll & interaction animations |
+| **Lucide React** | Beautiful, consistent icons |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone <your-repo-url>
+cd portfolio
+
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🌐 Vercel Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is optimized for seamless deployment on [Vercel](https://vercel.com).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Option 1: One-Click Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to a GitHub repository
+2. Go to [vercel.com/new](https://vercel.com/new)
+3. Import your GitHub repository
+4. Vercel auto-detects Next.js — no configuration needed
+5. Click **Deploy**
 
-## Deploy on Vercel
+### Option 2: Vercel CLI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Install Vercel CLI globally
+npm install -g vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Deploy from the project root
+vercel
+
+# For production deployment
+vercel --prod
+```
+
+### Environment Notes
+
+- No environment variables required (strictly frontend)
+- No database or backend dependencies
+- Build command: `next build` (auto-detected)
+- Output directory: `.next` (auto-detected)
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── public/                  # Static assets
+├── src/
+│   ├── app/
+│   │   ├── globals.css      # Global styles + utilities
+│   │   ├── layout.tsx       # Root layout with SEO metadata
+│   │   └── page.tsx         # Main page (assembles all sections)
+│   └── components/
+│       ├── Navbar.tsx        # Sticky glassmorphism navbar
+│       ├── HeroSection.tsx   # Hero with 3D canvas
+│       ├── HeroCanvas.tsx    # React Three Fiber 3D scene
+│       ├── AboutSection.tsx  # Stats + skills
+│       ├── ProjectsSection.tsx  # Project cards grid
+│       ├── CertificationsSection.tsx  # Certification cards
+│       ├── ContactSection.tsx   # Contact info + CTA
+│       └── Footer.tsx        # Footer with socials
+├── tailwind.config.ts       # Custom theme configuration
+├── next.config.mjs          # Next.js configuration
+└── package.json
+```
+
+## 📄 License
+
+MIT © Nitin Sharma

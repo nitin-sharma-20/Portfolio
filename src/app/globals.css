@@ -3,25 +3,107 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #faf8f5;
   --foreground: #171717;
+
+  /* Reference palette accents */
+  --accent-warm: #b08968;
+  --accent-copper: #a0755a;
+  --accent-sand: #c8a882;
+  --accent-olive: #7a7a5e;
+  --accent-charcoal: #3a3a3a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-size: 16px;
+  overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar — minimal */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+/* Utilities */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-accent-warm {
+    color: var(--accent-warm);
+  }
+
+  .text-accent-copper {
+    color: var(--accent-copper);
+  }
+
+  .text-accent-olive {
+    color: var(--accent-olive);
+  }
+
+  .bg-accent-warm {
+    background-color: var(--accent-warm);
+  }
+
+  .bg-accent-copper {
+    background-color: var(--accent-copper);
+  }
+
+  .bg-accent-sand {
+    background-color: var(--accent-sand);
+  }
+
+  .border-accent-warm {
+    border-color: var(--accent-warm);
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(circle, #d4d4d4 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Selection color */
+::selection {
+  background: #d4c4b0;
+  color: #171717;
 }
